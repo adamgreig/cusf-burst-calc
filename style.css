@@ -47,6 +47,13 @@ h1 {
     padding-bottom: 5px;
 }
 
+.constants_warning {
+    color: red;
+    font-size: 0.8em;
+    border: 1px solid red;
+    padding: 5px;
+}
+
 .constant_label {
     font-size: 0.8em;
 }
@@ -64,13 +71,15 @@ h1 {
 }
 
 #input_table td {
-    padding: 8px;
-    text-align: center;
+    padding-top: 5px;
     padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .input_label {
     font-size: 2em;
+    text-align: center;
 }
 
 .input_field {
@@ -81,19 +90,33 @@ h1 {
 .input_instruction {
     font-size: 1.5em;
     font-weight: bold;
+    text-align: center;
 }
 
 .input_row {
     background-color: #ddf;
 }
 
-#output_table {
-    border-spacing: 0;
-    background-color: #ccf;
+.input_row td {
+    text-align: center;
 }
 
-#output_table td {
-    padding: 20px;
+.warning_row {
+    background-color: #ddf;
+    color: #f55;
+    font-size: 0.8;
+    font-weight: bold;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.input_warning {
+    color: red;
+    font-size: 0.8em;
+}
+
+.output_row {
+    background-color: #ccf;
 }
 
 .output_label {
