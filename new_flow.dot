@@ -1,0 +1,24 @@
+digraph logicflow {
+    "Input" [shape=box];
+    "Output" [shape=diamond];
+    "Intermediate" [shape=ellipse];
+    "Balloon Mass (kg)" [shape=box];
+    "Payload Mass (kg)" [shape=box];
+    "Target Ascent Rate (m/s)" [shape=box];
+    "Target Burst Altitude (m)" [shape=box];
+    "Ascent Rate (m/s)" [shape=diamond];
+    "Burst Altitude (m)" [shape=diamond];
+    "Time to Burst (s)" [shape=diamond];
+    "Gross Lift (kg)" [shape=diamond];
+    node [shape=ellipse];
+    "Target Ascent Rate (m/s)" -> "Launch Diameter (m)";
+    "Target Burst Altitude (m)" -> "Launch Diameter (m)";
+    "Balloon Mass (kg)" -> "Launch Diameter (m)";
+    "Payload Mass (kg)" -> "Launch Diameter (m)";
+    "Launch Diameter (m)" -> "Ascent Rate (m/s)";
+    "Launch Diameter (m)" -> "Burst Altitude (m)";
+    "Ascent Rate (m/s)" -> "Time to Burst (s)";
+    "Burst Altitude (m)" -> "Time to Burst (s)";
+    "Launch Diameter (m)" -> "Gross Lift (kg)";
+    
+}
