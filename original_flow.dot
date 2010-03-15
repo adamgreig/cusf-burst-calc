@@ -25,7 +25,7 @@ digraph logicflow {
     "Balloon Mass (kg)" -> "Total Mass (kg)" [label="balloon+payload"];
     "Payload Mass (kg)" -> "Total Mass (kg)";
     "Gross Lift (kg)" -> "Free Lift (kg)" [label="lift-mass"];
-    "Payload Mass (kg)" -> "Free Lift (kg)";
+    "Total Mass (kg)" -> "Free Lift (kg)";
     "Free Lift (kg)" -> "Free Lift (N)" [label="*9.81"];
     "Balloon Mass (kg)" -> "Balloon Cd" [label="lookup"];
     "Air Density (kg/m^3)" -> "Ascent Rate (m/s)";
