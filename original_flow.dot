@@ -19,7 +19,7 @@ digraph logicflow {
     "Gas" -> "Gas Density (kg/m^3)" [label="lookup"];
     "Gas Density (kg/m^3)" -> "Density Difference (kg/m^3)" [label="gas-air"];
     "Air Density (kg/m^3)" -> "Density Difference (kg/m^3)";
-    "Density Difference" -> "Gross Lift (kg)" [label="vol*den"];
+    "Density Difference (kg/m^3)" -> "Gross Lift (kg)" [label="vol*den"];
     "Launch Diameter (m)" -> "Launch Volume (m^3)" [label="(4/3)pi(d/2)^2"];
     "Launch Volume (m^3)" -> "Gross Lift (kg)";
     "Balloon Mass (kg)" -> "Total Mass (kg)" [label="balloon+payload"];
