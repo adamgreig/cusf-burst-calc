@@ -239,7 +239,7 @@ function calc_update() {
         var h = (Math.pow(g,2) / 4.0) + (Math.pow(f,3) / 27.0);
 
         if(h>0) {
-            // One real root
+            // One real root. This is what should happen.
             var R = (-0.5 * g) + Math.sqrt(h);
             var S = Math.pow(R, 1.0/3.0);
             var T = (-0.5 * g) - Math.sqrt(h);
@@ -289,6 +289,11 @@ function calc_update() {
     var volume_ratio = launch_volume / burst_volume;
     burst_altitude = -(adm) * Math.log(volume_ratio);
     time_to_burst = (burst_altitude / ascent_rate) / 60.0;
+
+    if(isNaN(ascent_rate)) {
+        set_error('tba', "Altitude unreachable for this configuration.");
+        return;
+    }
 
     ascent_rate = Math.round(ascent_rate * 100) / 100;
     burst_altitude = Math.round(burst_altitude);
