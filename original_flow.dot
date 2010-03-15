@@ -1,0 +1,45 @@
+digraph logicflow {
+    "Input" [shape=box];
+    "Output" [shape=diamond];
+    "Constant" [shape=pentagon];
+    "Intermediate" [shape=ellipse];
+    "Gas" [shape=box];
+    "Launch Diameter (m)" [shape=box];
+    "Balloon Mass (kg)" [shape=box];
+    "Payload Mass (kg)" [shape=box];
+    "Free Lift (kg)" [shape=diamond];
+    "Ascent Rate (m/s)" [shape=diamond];
+    "Burst Altitude (m)" [shape=diamond];
+    "Time to Burst (s)" [shape=diamond];
+    "Air Density (kg/m^3)" [shape=pentagon];
+    "Air Density Model" [shape=pentagon];
+    "Balloon Cd" [shape=pentagon];
+    "Burst Diameter (m)" [shape=pentagon];
+    node [shape=ellipse];
+    "Gas" -> "Gas Density (kg/m^3)" [label="lookup"];
+    "Gas Density (kg/m^3)" -> "Density Difference (kg/m^3)" [label="gas-air"];
+    "Air Density (kg/m^3)" -> "Density Difference (kg/m^3)";
+    "Density Difference" -> "Gross Lift (kg)" [label="vol*den"];
+    "Launch Diameter (m)" -> "Launch Volume (m^3)" [label="(4/3)pi(d/2)^2"];
+    "Launch Volume (m^3)" -> "Gross Lift (kg)";
+    "Balloon Mass (kg)" -> "Total Mass (kg)" [label="balloon+payload"];
+    "Payload Mass (kg)" -> "Total Mass (kg)";
+    "Gross Lift (kg)" -> "Free Lift (kg)" [label="lift-mass"];
+    "Payload Mass (kg)" -> "Free Lift (kg)";
+    "Free Lift (kg)" -> "Free Lift (N)" [label="*9.81"];
+    "Balloon Mass (kg)" -> "Balloon Cd" [label="lookup"];
+    "Air Density (kg/m^3)" -> "Ascent Rate (m/s)";
+    "Balloon Cd" -> "Ascent Rate (m/s)";
+    "Free Lift (N)" -> "Ascent Rate (m/s)" [label="sqrt(lift/(.5*Cd*A*dens))"];
+    "Launch Diameter (m)" -> "Launch Area (m^2)" [label="pi*(d/2)^2"];
+    "Launch Area (m^2)" -> "Ascent Rate (m/s)";
+    "Balloon Mass (kg)" -> "Burst Diameter (m)" [label="lookup"];
+    "Burst Diameter (m)" -> "Burst Volume (m^3)" [label="(4/3)pi(d/2)^2"];
+    "Burst Volume (m^3)" -> "Burst Volume Ratio" [label="burst/launch"];
+    "Launch Volume (m^3)" -> "Burst Volume Ratio";
+    "Burst Volume Ratio" -> "Burst Altitude (m)"
+        [label="-(air dens model)*ln(1/ratio)"];
+    "Air Density Model" -> "Burst Altitude (m)";
+    "Burst Altitude (m)" -> "Time to Burst (s)" [label="rate/alt"];
+    "Ascent Rate (m/s)" -> "Time to Burst (s)";
+}
