@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>CUSF Balloon Burst Calculator</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div id="header">
+            <h1>CUSF Balloon Burst Calculator</h1>
+            <div id="menu">
+                <a href="#">About</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="content">
+            <div id="constants">
+                <div class="constants_header">Constants</div>
+                <label class="constant_label" for="rho_g">Gas Density</label><br />
+                <input type="text" id="rho_g" value="0.1786" class="constant_field" size="9"/><br />
+                <label class="constant_label" for="rho_a">Air Density</label><br />
+                <input type="text" id="rho_a" value="1.2050" class="constant_field" size="9"/><br />
+                <label class="constant_label" for="adm">Air Density Model</label><br />
+                <input type="text" id="adm" value="7238.3" class="constant_field" size="9"/><br />
+                <label class="constant_label" for="bd">Burst Diameter</label><br />
+                <label class="constant_label" for="bd_c">Use Custom?</label> 
+                <input type="checkbox" id="bd_c" /><br />
+                <input type="text" id="bd" class="constant_field" size="9" disabled="disabled"/><br />
+                <label class="constant_label" for="bc">Balloon Cd</label><br />
+                <label class="constant_label" for="bc_c">Use Custom?</label> 
+                <input type="checkbox" id="bc_c" /><br />
+                <input type="text" id="bc" class="constant_field" size="9" disabled="disabled"/><br />
+            </div>
+            <div id="ui">
+                <div id="input">
+                    <table id="input_table">
+                        <tr class="input_row">
+                            <td class="input_label">Payload Mass (kg)</td>
+                            <td class="input_instruction" rowspan="2">AND</td>
+                            <td class="input_label">Balloon Mass (kg)</td>
+                        </tr>
+                        <tr class="input_row">
+                            <td>
+                                <input type="text" id="mp" class="input_field" value="2" />
+                            </td>
+                            <td>
+                                <input type="text" id="mb" class="input_field" value="0.8" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="input_instruction" colspan="3">THEN</td>
+                        </tr>
+                        <tr class="input_row">
+                            <td class="input_label">Ascent Rate (m/s)</td>
+                            <td class="input_instruction" rowspan="2">OR</td>
+                            <td class="input_label">Burst Altitude (km)</td>
+                        </tr>
+                        <tr class="input_row">
+                            <td>
+                                <input type="text" id="tar" class="input_field" value="3" />
+                            </td>
+                            <td>
+                                <input type="text" id="tba" class="input_field" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br /><br />
+                <div id="output">
+                    <table id="output_table">
+                        <tr class="output_row">
+                            <td class="output_label">Ascent Rate:</td>
+                            <td class="output_data">3.013 m/s</td>
+                            <td class="output_label">Burst Altitude:</td>
+                            <td class="output_data">30833 m</td>
+                        </tr>
+                        <tr class="output_row">
+                            <td class="output_label">Time to Burst:</td>
+                            <td class="output_data">141.79 min</td>
+                            <td class="output_label">Gross Lift:</td>
+                            <td class="output_data">3.69 kg</td>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

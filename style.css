@@ -1,0 +1,106 @@
+body {
+    background-color: #fff;
+    font-family: "Liberation Sans", "Bitstream Vera Sans", "Verdana", sans;
+}
+
+.clear {
+    clear: both;
+}
+
+#header {
+    background-color: #33f;
+    color: #fff;
+}
+
+h1 {
+    float: left;
+    margin-left: 2em;
+}
+
+#menu {
+    float: right;
+    margin-top: 1em;
+    margin-right: 1em;
+}
+
+#menu a {
+    color: white;
+}
+
+#content {
+    background-color: #fff;
+    color: #222;
+    margin-left: 5%;
+    padding-top: 2em;
+    position: relative;
+}
+
+#constants {
+    background-color: #ddf;
+    float: right;
+    margin-right: 5%;
+    padding: 2em;
+}
+
+.constants_header {
+    font-size: 1.2em;
+    padding-bottom: 5px;
+}
+
+.constant_label {
+    font-size: 0.8em;
+}
+
+.constant_field {
+    font-size: 0.8em;
+}
+
+#ui {
+    float: left;
+}
+
+#input_table {
+    border-spacing: 0;
+}
+
+#input_table td {
+    padding: 8px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.input_label {
+    font-size: 2em;
+}
+
+.input_field {
+    font-size: 1.5em;
+}
+
+.input_instruction {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.input_row {
+    background-color: #ddf;
+}
+
+#output_table {
+    border-spacing: 0;
+    background-color: #ccf;
+}
+
+#output_table td {
+    padding: 20px;
+}
+
+.output_label {
+    font-size: 1.8em;
+    text-align: right;
+}
+
+.output_data {
+    font-size: 1.6em;
+    text-align: left;
+}
