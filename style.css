@@ -70,11 +70,16 @@ h1 {
     border-spacing: 0;
 }
 
+#input_table tr {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 #input_table td {
     padding-top: 5px;
     padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .input_label {
