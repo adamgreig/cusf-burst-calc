@@ -16,9 +16,57 @@
                 </noscript>
             </div>
             <div id="menu">
-                <a href="">Help</a> | <a href="">About</a>
+                <a href="#" id="showhelp">Help</a> | <a href="#" id="showabout">About</a>
             </div>
             <div class="clear"></div>
+        </div>
+        <div id="helpbox">
+            <h2>Help</h2>
+            <p>
+                This calculator is designed to help you find how much gas to put into a high altitude balloon
+                to achieve a desired burst altitude or ascent rate. You have to know the payload mass (including
+                parachute) and balloon mass.
+            </p>
+            <p>
+                Usage is very straightforward: enter the payload mass into the first box, select the balloon
+                mass from the second box, and type in either a desired burst altitude in meters or ascent rate
+                in meters per second in the relevent box. Pressing enter or clicking away from the box you are
+                typing into will run the calculations, displaying the results in the box at the bottom.
+            </p>
+            <p>
+                The 'Constants' box can be used to adjust constants used by the calculator. These include
+                selecting a type of gas (or entering a custom gas density), adjusting modelling parameters
+                or entering a custom burst diameter or drag coefficient for your balloon. Click the tick box
+                next to the burst diameter or drag coefficient boxes to use a custom value, otherwise the
+                appropriate value for your selected balloon will be used.
+            </p>
+            <p>
+                <a href="#" id="hidehelp">Close</a>
+            </p>
+        </div>
+        <div id="aboutbox">
+            <h2>About</h2>
+            <p>
+                Cambridge University Space Flight: Balloon Burst Calculator
+            </p>
+            <p>
+                An entirely javascript based, XHTML-valid, CSS-valid calculator to determine high altitude
+                balloon parameters.
+            </p>
+            <p>
+                Written by Adam Greig for CUSF in March 2010. Maths derived from `burst1a` spreadsheet by
+                Steve Randall. Balloon information from Kaymont Totex sounding balloon data.
+            </p>
+            <p>
+                No guarentee is given for the accuracy of any data included or produced by this program, use
+                at your own risk.
+            </p>
+            <p>
+                Copyright 2010 Cambridge University Space Flight
+            </p>
+            <p>
+                <a href="#" id="hideabout">Close</a>
+            </p>
         </div>
         <div id="content">
             <div id="ui">

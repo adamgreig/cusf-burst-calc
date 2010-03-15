@@ -10,6 +10,7 @@ body {
 #header {
     background-color: #33f;
     color: #fff;
+    z-index: 0;
 }
 
 #title {
@@ -33,12 +34,37 @@ body {
     font-weight: bold;
 }
 
+#helpbox {
+    position: absolute;
+    visibility: hidden;
+    width: 70%;
+    background-color: #ddf;
+    border: 5px solid #33f;
+    z-index: 10;
+    margin-top: 5%;
+    margin-left: 15%;
+    padding: 20px;
+}
+
+#aboutbox {
+    position: absolute;
+    visibility: hidden;
+    width: 70%;
+    background-color: #ddf;
+    border: 5px solid #33f;
+    z-index: 11;
+    margin-top: 5%;
+    margin-left: 15%;
+    padding: 20px;
+}
+
 #content {
     background-color: #fff;
     color: #222;
     margin-left: 5%;
     padding-top: 2em;
     position: relative;
+    z-index: 1;
 }
 
 #constants {
