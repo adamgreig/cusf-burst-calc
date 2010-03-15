@@ -104,7 +104,7 @@ h1 {
 .warning_row {
     background-color: #ddf;
     color: #f55;
-    font-size: 0.8;
+    font-size: 0.8em;
     font-weight: bold;
     padding-bottom: 5px;
     text-align: center;
