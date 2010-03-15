@@ -23,7 +23,7 @@ function set_error(id, error) {
     document.getElementById(id+"_w").innerHTML = error;
 }
 
-function sanity_check_inputs(mb, mp, tar, tba, tar_set, tba_set) {
+function sanity_check_inputs(mb, mp, mp_set, tar, tba, tar_set, tba_set) {
     if(tar_set && tba_set) {
         set_error('tar', "Can't specify both!");
         set_error('tba', "Can't specify both!");
@@ -50,7 +50,10 @@ function sanity_check_inputs(mb, mp, tar, tba, tar_set, tba_set) {
         return 1;
     }
 
-    if(mp < 20) {
+    if(!mp_set) {
+        set_error('mp', "You have to enter a payload mass!");
+        return 1;
+    } else if(mp < 20) {
         set_error('mp', "Mass is too small! (less than 20g)");
         return 1;
     } else if(mp > 5000) {
@@ -195,15 +198,18 @@ function calc_update() {
     var mp = get_value('mp');
     var tar = get_value('tar');
     var tba = get_value('tba');
+    var mp_set = 0;
     var tar_set = 0;
     var tba_set = 0;
 
+    if(document.getElementById('mp').value)
+        mp_set = 1;
     if(document.getElementById('tar').value)
         tar_set = 1;
     if(document.getElementById('tba').value)
         tba_set = 1;
 
-    if(sanity_check_inputs(mb, mp, tar, tba, tar_set, tba_set))
+    if(sanity_check_inputs(mb, mp, mp_set, tar, tba, tar_set, tba_set))
         return;
 
     // Get constants and check them
