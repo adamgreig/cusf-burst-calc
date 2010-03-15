@@ -17,8 +17,14 @@
         <div id="content">
             <div id="constants">
                 <div class="constants_header">Constants</div>
+                <label class="constant_label" for="gas">Gas</label><br />
+                <select id="gas" class="constant_field">
+                    <option value="he">Helium</option>
+                    <option value="h">Hydrogen</option>
+                    <option value="custom">Custom</option>
+                </select><br />
                 <label class="constant_label" for="rho_g">Gas Density</label><br />
-                <input type="text" id="rho_g" value="0.1786" class="constant_field" size="9"/><br />
+                <input type="text" id="rho_g" value="0.1786" class="constant_field" size="9" disabled="disabled"/><br />
                 <label class="constant_label" for="rho_a">Air Density</label><br />
                 <input type="text" id="rho_a" value="1.2050" class="constant_field" size="9"/><br />
                 <label class="constant_label" for="adm">Air Density Model</label><br />
