@@ -62,7 +62,7 @@ function sanity_check_inputs(mb, mp, tar, tba, tar_set, tba_set) {
 
 }
 
-function sanity_check_constants(rho_g, rho_a, adm, bd, cd) {
+function sanity_check_constants(rho_g, rho_a, adm, ga, bd, cd) {
     if(!rho_a || rho_a < 0) {
         show_error('rho_a');
         return 1;
@@ -73,6 +73,10 @@ function sanity_check_constants(rho_g, rho_a, adm, bd, cd) {
     }
     if(!adm || adm < 0) {
         show_error('adm');
+        return 1;
+    }
+    if(!ga || ga < 0) {
+        show_error('ga');
         return 1;
     }
     if(!cd || cd < 0 || cd > 1) {
@@ -206,10 +210,11 @@ function calc_update() {
     var rho_g = find_rho_g();
     var rho_a = get_value('rho_a');
     var adm = get_value('adm');
+    var ga = get_value('ga');
     var bd = find_bd(mb);
     var cd = find_cd(mb);
 
-    if(sanity_check_constants(rho_g, rho_a, adm, bd, cd))
+    if(sanity_check_constants(rho_g, rho_a, adm, ga, bd, cd))
         return;
     
     // Do some maths
@@ -229,10 +234,10 @@ function calc_update() {
         launch_volume = burst_volume * Math.exp((-tba) / adm);
         launch_radius = Math.pow((3*launch_volume)/(4*Math.PI), (1/3));
     } else if(tar_set) {
-        var a = 9.81 * (rho_a - rho_g) * (4.0 / 3.0) * Math.PI;
+        var a = ga * (rho_a - rho_g) * (4.0 / 3.0) * Math.PI;
         var b = -0.5 * Math.pow(tar, 2) * cd * rho_a * Math.PI;
         var c = 0;
-        var d = - (mp + mb) * 9.81;
+        var d = - (mp + mb) * ga;
 
         var f = (((3*c)/a) - (Math.pow(b, 2) / Math.pow(a,2)) / 3.0);
         var g = (((2*Math.pow(b,3))/Math.pow(a,3)) - ((9*b*c)/(Math.pow(a,2))) + ((27*d)/a) / 27.0);
@@ -284,7 +289,7 @@ function calc_update() {
     var gross_lift = launch_volume * density_difference;
     neck_lift = (gross_lift - mb) * 1000;
     var total_mass = mp + mb;
-    var free_lift = (gross_lift - total_mass) * 9.81;
+    var free_lift = (gross_lift - total_mass) * ga;
     ascent_rate = Math.sqrt(free_lift / (0.5 * cd * launch_area * rho_a));
     var volume_ratio = launch_volume / burst_volume;
     burst_altitude = -(adm) * Math.log(volume_ratio);
