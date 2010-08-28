@@ -3,7 +3,9 @@ function get_value(id) {
 }
 
 function clear_errors() {
-    var ids = ['mp', 'tar', 'tba', 'rho_g', 'rho_a', 'adm', 'bd', 'cd', 'bd_c', 'cd_c'];
+    var ids = ['mp', 'tar', 'tba', 'rho_g', 'rho_a', 'adm', 'bd', 'cd',
+        'bd_c', 'cd_c'];
+
     for(var i in ids) {
         document.getElementById(ids[i]).style.backgroundColor = '';
     }
@@ -46,7 +48,8 @@ function sanity_check_inputs(mb, mp, mp_set, tar, tba, tar_set, tba_set) {
         set_error('tba', "Target burst altitude is too low! (less than 10km)");
         return 1;
     } else if(tba_set && tba > 40000) {
-        set_error('tba', "Target burst altitude is too high! (greater than 40km)");
+        set_error('tba',
+            "Target burst altitude is too high! (greater than 40km)");
         return 1;
     }
 
@@ -246,7 +249,10 @@ function calc_update() {
         var d = - (mp + mb) * ga;
 
         var f = (((3*c)/a) - (Math.pow(b, 2) / Math.pow(a,2)) / 3.0);
-        var g = (((2*Math.pow(b,3))/Math.pow(a,3)) - ((9*b*c)/(Math.pow(a,2))) + ((27*d)/a) / 27.0);
+        var g = (
+            ((2*Math.pow(b,3))/Math.pow(a,3)) -
+            ((9*b*c)/(Math.pow(a,2))) + ((27*d)/a) / 27.0
+        );
         var h = (Math.pow(g,2) / 4.0) + (Math.pow(f,3) / 27.0);
 
         if(h>0) {
@@ -275,7 +281,8 @@ function calc_update() {
             var r2 = L * (M + N) + P;
             var r3 = L * (M - N) + P;
 
-            alert("Three possible solutions found: " + r1 + ", " + r2 + ", " + r3);
+            alert("Three possible solutions found: "
+                + r1 + ", " + r2 + ", " + r3);
             
             if(r1 > 0) {
                 launch_radius = r1;
@@ -306,15 +313,21 @@ function calc_update() {
         return;
     }
 
-    ascent_rate = Math.round(ascent_rate * 100) / 100;
-    burst_altitude = Math.round(burst_altitude);
-    time_to_burst = Math.round(time_to_burst);
-    neck_lift = Math.round(neck_lift);
+    ascent_rate = ascent_rate.toFixed(2);
+    burst_altitude = burst_altitude.toFixed();
+    time_to_burst = time_to_burst.toFixed();
+    neck_lift = neck_lift.toFixed();
+    launch_litres = (launch_volume * 1000).toFixed();
+    launch_cf = (launch_volume * 35.31).toFixed(1);
+    launch_volume = launch_volume.toFixed(2);
 
     document.getElementById('ar').innerHTML = ascent_rate + " m/s";
     document.getElementById('ba').innerHTML = burst_altitude + " m";
     document.getElementById('ttb').innerHTML = time_to_burst + " min";
     document.getElementById('nl').innerHTML = neck_lift + " g";
+    document.getElementById('lv_m3').innerHTML = launch_volume + " m<sup>3</sup>";
+    document.getElementById('lv_l').innerHTML = launch_litres + " L";
+    document.getElementById('lv_cf').innerHTML = launch_cf + " ft<sup>3</sup>";
 }
 
 function show_help() {
