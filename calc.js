@@ -130,19 +130,35 @@ function find_bd(mb) {
     var bds = new Array();
 
     // From Kaymont Totex Sounding Balloon Data
-    bds[200] = 3.00;
-    bds[300] = 3.78;
-    bds[350] = 4.12;
-    bds[450] = 4.72;
-    bds[500] = 4.99;
-    bds[600] = 6.02;
-    bds[700] = 6.53;
-    bds[800] = 7.00;
-    bds[1000] = 7.86;
-    bds[1200] = 8.63;
-    bds[1500] = 9.44;
-    bds[2000] = 10.54;
-    bds[3000] = 13.00;
+    bds["k200"] = 3.00;
+    bds["k300"] = 3.78;
+    bds["k350"] = 4.12;
+    bds["k450"] = 4.72;
+    bds["k500"] = 4.99;
+    bds["k600"] = 6.02;
+    bds["k700"] = 6.53;
+    bds["k800"] = 7.00;
+    bds["k1000"] = 7.86;
+    bds["k1200"] = 8.63;
+    bds["k1500"] = 9.44;
+    bds["k2000"] = 10.54;
+    bds["k3000"] = 13.00;
+    // Hwoyee data from http://www.hwoyee.com/base.asp?ScClassid=521&id=521102
+    bds["h200"] = 3.00;
+    bds["h300"] = 3.80;
+    bds["h350"] = 4.10;
+    bds["h400"] = 4.50;
+    bds["h500"] = 5.00;
+    bds["h600"] = 5.80;
+    bds["h750"] = 6.50;
+    bds["h800"] = 6.80;
+    bds["h950"] = 7.20;
+    bds["h1000"] = 7.50;
+    bds["h1200"] = 8.50;
+    bds["h1500"] = 9.50;
+    bds["h1600"] = 10.50;
+    bds["h2000"] = 11.00;
+
  
     var bd_c = document.getElementById('bd_c').checked;
     var bd;
@@ -163,19 +179,34 @@ function find_cd(mb) {
     var cds = new Array();
 
     // From Kaymont Totex Sounding Balloon Data
-    cds[200] = 0.25;
-    cds[300] = 0.25;
-    cds[350] = 0.25;
-    cds[450] = 0.25;
-    cds[500] = 0.25;
-    cds[600] = 0.30;
-    cds[700] = 0.30;
-    cds[800] = 0.30;
-    cds[1000] = 0.30;
-    cds[1200] = 0.25;
-    cds[1500] = 0.25;
-    cds[2000] = 0.25;
-    cds[3000] = 0.25;
+    cds["k200"] = 0.25;
+    cds["k300"] = 0.25;
+    cds["k350"] = 0.25;
+    cds["k450"] = 0.25;
+    cds["k500"] = 0.25;
+    cds["k600"] = 0.30;
+    cds["k700"] = 0.30;
+    cds["k800"] = 0.30;
+    cds["k1000"] = 0.30;
+    cds["k1200"] = 0.25;
+    cds["k1500"] = 0.25;
+    cds["k2000"] = 0.25;
+    cds["k3000"] = 0.25;
+    // Hwoyee data just guesswork
+    cds["h200"] = 0.25;
+    cds["h300"] = 0.25;
+    cds["h350"] = 0.25;
+    cds["h400"] = 0.25;
+    cds["h500"] = 0.25;
+    cds["h600"] = 0.30;
+    cds["h750"] = 0.30;
+    cds["h800"] = 0.30;
+    cds["h950"] = 0.30;
+    cds["h1000"] = 0.30;
+    cds["h1200"] = 0.25;
+    cds["h1500"] = 0.25;
+    cds["h1600"] = 0.25;
+    cds["h2000"] = 0.25;
 
     var cd_c = document.getElementById('cd_c').checked;
     var cd;
@@ -197,7 +228,7 @@ function calc_update() {
     clear_errors();
 
     // Get input values and check them
-    var mb = get_value('mb');
+    var mb = document.getElementById('mb').value;
     var mp = get_value('mp');
     var tar = get_value('tar');
     var tba = get_value('tba');
@@ -227,7 +258,7 @@ function calc_update() {
         return;
     
     // Do some maths
-    mb = mb / 1000.0;
+    mb = parseFloat(mb.substr(1)) / 1000.0;
     mp = mp / 1000.0;
 
     var ascent_rate = 0;
