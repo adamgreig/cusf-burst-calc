@@ -1,26 +1,30 @@
-#header, #helpbox, #aboutbox {
-    display: none;
-}
-
 select {
     padding: 5px 4px;
 }
-
+input {
+    text-align: center;
+}
+input:disabled {
+    background-color: #f5f5f5;
+}
+.hidden {
+    display: none !important;
+}
 #main {
     width: 800px;
     margin-bottom: 40px;
 }
-
 #main .grey {
     background-color: #fcfcfc;
     padding: 15px;
     border: 1px solid #eee;
 }
-
 #main .float {
     float: left;
 }
-
+#main .rfloat {
+    float: right;
+}
 #main .first {
     position: relative;
 }
@@ -28,8 +32,28 @@ select {
     position: relative;
     margin-left: 50px;
 }
-#main .third {
+#main .third,
+#main .fourth {
     margin-top: 15px;
+}
+#main .third .output_label{
+    float: left;
+    clear: both;
+}
+#main .third .output_data{
+    float: right;
+    font-weight: bold;
+}
+#main .fourth.closed {
+    cursor: pointer;
+    color: #00A3D3;
+}
+#main .fourth.closed:hover {
+    background-color: #efefef;
+    border-color: #ccc;
+}
+#main .fourth .column{
+    display: none;
 }
 #main .first .sign,
 #main .second .sign  {
@@ -42,5 +66,8 @@ select {
 #main .second .sign  {
     top: 50%;
     right: -80px;
+}
+#result.error{
+    color: #FE727C;
 }
 
