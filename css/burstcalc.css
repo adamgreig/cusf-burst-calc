@@ -1,0 +1,46 @@
+#header, #helpbox, #aboutbox {
+    display: none;
+}
+
+select {
+    padding: 5px 4px;
+}
+
+#main {
+    width: 800px;
+    margin-bottom: 40px;
+}
+
+#main .grey {
+    background-color: #fcfcfc;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+#main .float {
+    float: left;
+}
+
+#main .first {
+    position: relative;
+}
+#main .second {
+    position: relative;
+    margin-left: 50px;
+}
+#main .third {
+    margin-top: 15px;
+}
+#main .first .sign,
+#main .second .sign  {
+    position: absolute;
+    z-index: 88;
+    font-size: 150px;
+    top: 40%;
+    right: -60px;
+}
+#main .second .sign  {
+    top: 50%;
+    right: -80px;
+}
+
