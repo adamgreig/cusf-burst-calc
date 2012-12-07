@@ -383,6 +383,27 @@ $(document).ready(function() {
         $(this).stop(true,true).css({'background-color':'#FE727C'}).delay(50).animate({backgroundColor: 'white'}, 100);
     });
 
+    // adjust input field value with mousewheel
+    $('input.scrollable').bind('mousewheel', function(event, delta) {
+        event.preventDefault();
+        var elm = $(this);
+        var x = parseFloat(elm.val());
+        // different fields can use different step value
+        // step value has to be defined on the element by 'rel' attribute
+        var step = parseFloat(elm.attr('rel'));
+        if(isNaN(step)) step = 5;
+
+        x = x + (step * delta);
+        if(x <= 0) return; // no numbers bellow zero
+
+        x = Math.round(x*100)/100; //round to two decimal places
+
+        elm.val(x);      
+        elm.change(); // calculate result
+   
+        return false;
+    });
+
     // enable disabled constants
     $('#bd_c, #cd_c').click(function() {
         if($('#bd_c:checked').length) $('#bd').removeAttr('disabled');

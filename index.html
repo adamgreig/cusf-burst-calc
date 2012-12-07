@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="css/burstcalc.css"/>
         <script type="text/javascript" src="js/jquery-1.8.3-min.js"></script>
         <script type="text/javascript" src="js/jquery-color.js"></script>
+        <script type="text/javascript" src="js/jquery-mousewheel.js"></script>
         <script type="text/javascript" src="js/calc.js"></script>
     </head>
     <body>
@@ -99,7 +100,7 @@
                 <div class="five columns alpha grey float first">
                     <div class="sign">↣</div>
                     <h4>Payload Mass (g)</h4>
-                    <input type="text" id="mp" class="input_field numeric" value="1500" tabindex="1"/>
+                    <input type="text" id="mp" class="input_field numeric scrollable" value="1500" rel="5" tabindex="1"/>
                     <h4>Balloon Mass (g)</h4>
                     <select class="input_field" id="mb" tabindex="2">
                         <option value="k200">Kaymont - 200</option>
@@ -135,9 +136,9 @@
                 <div class="five columns alpha grey float second">
                     <div class="sign">↴</div>
                     <h4>Target Burst Altitude (m)</h4>
-                    <input type="text" id="tba" class="input_field numeric" value="33000" tabindex="3"/>
+                    <input type="text" id="tba" class="input_field numeric scrollable" rel="100" value="33000" tabindex="3"/>
                     <h4>Target Ascent rate (m/s)</h4>
-                    <input type="text" id="tar" class="input_field numeric" tabindex="4"/>
+                    <input type="text" id="tar" class="input_field numeric scrollable" rel="0.1" tabindex="4"/>
                 </div>
                 <div class="thirteen columns alpha grey third">
                     <h4 id="result">Result</h4>
@@ -175,19 +176,19 @@
                     </div>
                     <div class="column">
                         <label class="constant_label" for="rho_a">Air Density (kg/m<sup>3</sup>)</label><br />
-                        <input type="text" id="rho_a" value="1.2050" class="constant_field numeric" size="9"/><br />
+                        <input type="text" id="rho_a" value="1.2050" class="constant_field numeric" autocomplete="off" size="9"/><br />
                         <label class="constant_label" for="adm">Air Density Model</label><br />
-                        <input type="text" id="adm" value="7238.3" class="constant_field numeric" size="9"/><br />
+                        <input type="text" id="adm" value="7238.3" class="constant_field numeric" autocomplete="off" size="9"/><br />
                         <label class="constant_label" for="ga">Gravitational<br />Acceleration (m/s<sup>2</sup>)</label><br />
-                        <input type="text" id="ga" value="9.80665" class="constant_field numeric" size="9" /><br />
+                        <input type="text" id="ga" value="9.80665" class="constant_field numeric" autocomplete="off" size="9" /><br />
                     </div>
                     <div class="column omega">
                         <input type="checkbox" class="float" id="bd_c" />
                         <label class="constant_label" for="bd">Burst Diameter (m)</label><br />
-                        <input type="text" id="bd" class="constant_field numeric" disabled="disabled" value="7.86" autocomplete="off" /><br />
+                        <input type="text" id="bd" class="constant_field numeric scrollable" rel="0.2" disabled="disabled" value="7.86" autocomplete="off" /><br />
                         <input type="checkbox" class="float" id="cd_c" />
                         <label class="constant_label" for="cd">Balloon Cd</label><br />
-                        <input type="text" id="cd" class="constant_field numeric" disabled="disabled" value="0.3" autocomplete="off" /><br />
+                        <input type="text" id="cd" class="constant_field numeric scrollable" rel="0.05"  disabled="disabled" value="0.3" autocomplete="off" /><br />
                     </div>
                 </div>
             </div>
