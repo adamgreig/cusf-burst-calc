@@ -388,6 +388,7 @@ $(document).ready(function() {
         event.preventDefault();
         var elm = $(this);
         var x = parseFloat(elm.val());
+        if(isNaN(x)) return false;
         // different fields can use different step value
         // step value has to be defined on the element by 'rel' attribute
         var step = parseFloat(elm.attr('rel'));
